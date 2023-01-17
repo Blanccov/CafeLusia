@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="main_form" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coffeebelgatest.UserController">
+   <children>
+      <GridPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="526.60009765625" minWidth="10.0" prefWidth="195.20001220703125" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="969.5999649047851" minWidth="10.0" prefWidth="905.5999877929687" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="199.79999389648438" minHeight="2.1999924659728975" prefHeight="23.999996948242188" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="360.19999065399173" minHeight="10.0" prefHeight="69.00000508626302" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="634.3999938964844" minHeight="10.0" prefHeight="514.9999949137369" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <AnchorPane fx:id="coupons_form" prefHeight="200.0" prefWidth="200.0" styleClass="bg-back" stylesheets="@designMainpanel.css" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <AnchorPane layoutX="27.0" layoutY="14.0" prefHeight="482.0" prefWidth="844.0" styleClass="bg-white" stylesheets="@designMainpanel.css">
+                     <children>
+                        <TableView fx:id="status_tableView" layoutX="14.0" layoutY="60.0" prefHeight="406.0" prefWidth="814.0">
+                           <columns>
+                              <TableColumn fx:id="status_col_productName" prefWidth="195.20001602172852" text="Product Name" />
+                              <TableColumn fx:id="status_col_type" prefWidth="148.0000762939453" text="Type" />
+                              <TableColumn fx:id="status_col_price" prefWidth="169.5999755859375" text="Price" />
+                              <TableColumn fx:id="status_col_status" prefWidth="161.5999755859375" text="Status" />
+                              <TableColumn fx:id="status_col_payment" prefWidth="138.39993896484373" text="Payment" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="orders_form" prefHeight="200.0" prefWidth="200.0" styleClass="bg-back" stylesheets="@designMainpanel.css" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <AnchorPane layoutX="603.0" layoutY="15.0" prefHeight="482.0" prefWidth="260.0" styleClass="bg-white" stylesheets="@designMainpanel.css">
+                     <children>
+                        <Label layoutX="4.0" layoutY="37.0" text="Product Name:" />
+                        <Label layoutX="21.0" layoutY="94.0" text="Quanity:" />
+                        <Button fx:id="orders_add" layoutX="38.0" layoutY="218.0" mnemonicParsing="false" onAction="#ordersAdd" prefHeight="46.0" prefWidth="192.0" styleClass="menu-btn" stylesheets="@designMainpanel.css" text="Add" />
+                        <ComboBox fx:id="orders_productName" layoutX="98.0" layoutY="33.0" prefWidth="150.0" promptText="Choose" />
+                        <Button fx:id="orders_remove" layoutX="141.0" layoutY="404.0" mnemonicParsing="false" onAction="#orderRemove" prefHeight="46.0" prefWidth="88.0" styleClass="menu-btn" stylesheets="@designMainpanel.css" text="Remove" />
+                        <Button fx:id="orders_pay" layoutX="41.0" layoutY="404.0" mnemonicParsing="false" onAction="#orderPay" prefHeight="45.0" prefWidth="79.0" styleClass="menu-btn" stylesheets="@designMainpanel.css" text="Pay" />
+                        <Spinner fx:id="orders_quantity" layoutX="99.0" layoutY="90.0" onMouseClicked="#ordersQuantity" />
+                        <Label layoutX="28.0" layoutY="291.0" prefHeight="34.0" prefWidth="61.0" text="Total:">
+                           <font>
+                              <Font size="23.0" />
+                           </font></Label>
+                        <Label fx:id="orders_total" layoutX="101.0" layoutY="291.0" prefHeight="18.0" prefWidth="142.0" text="0.0zł">
+                           <font>
+                              <Font name="System Bold" size="23.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="18.0" layoutY="125.0" text="Phone:" />
+                        <TextField fx:id="orders_phone" layoutX="100.0" layoutY="121.0" />
+                        <Label layoutX="21.0" layoutY="155.0" text="Address:" />
+                        <TextField fx:id="orders_address" layoutX="98.0" layoutY="151.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="24.0" layoutY="15.0" prefHeight="482.0" prefWidth="538.0" styleClass="bg-white" stylesheets="@designMainpanel.css">
+                     <children>
+                        <TableView fx:id="orders_tableView" layoutX="14.0" layoutY="14.0" onMouseClicked="#orderSelectData" prefHeight="452.0" prefWidth="510.0">
+                           <columns>
+                              <TableColumn fx:id="orders_col_productname" prefWidth="144.800048828125" text="Product Name" />
+                              <TableColumn fx:id="orders_col_type" prefWidth="120.79991149902344" text="Type" />
+                              <TableColumn fx:id="orders_col_price" prefWidth="103.20010375976562" text="Price" />
+                              <TableColumn fx:id="orders_col_quantity" prefWidth="140.800048828125" text="Quantity" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="reservations_form" prefHeight="200.0" prefWidth="200.0" styleClass="bg-back" stylesheets="@designMainpanel.css" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <AnchorPane layoutX="38.0" layoutY="14.0" prefHeight="482.0" prefWidth="260.0" styleClass="bg-white" stylesheets="@designMainpanel.css">
+                     <children>
+                        <Label layoutX="52.0" layoutY="59.0" text="Table number:">
+                           <font>
+                              <Font name="System Bold" size="23.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="reservations_reserve" layoutX="33.0" layoutY="241.0" mnemonicParsing="false" onAction="#reservationAdd" prefHeight="46.0" prefWidth="198.0" styleClass="menu-btn" stylesheets="@designMainpanel.css" text="Reserve" />
+                        <Button fx:id="reservations_clear" layoutX="33.0" layoutY="301.0" mnemonicParsing="false" onAction="#reservationClear" prefHeight="46.0" prefWidth="198.0" styleClass="menu-btn" stylesheets="@designMainpanel.css" text="Unreserve" />
+                        <ComboBox fx:id="reservations_tableNumber" layoutX="55.0" layoutY="102.0" onAction="#reservationsSize" prefWidth="150.0" promptText="Choose" />
+                        <Label layoutX="55.0" layoutY="141.0" text="Table size:">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="reservations_size" editable="false" layoutX="56.0" layoutY="178.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="333.0" layoutY="14.0" prefHeight="482.0" prefWidth="538.0" styleClass="bg-white" stylesheets="@designMainpanel.css">
+                     <children>
+                        <TableView fx:id="reservations_tableView" layoutX="14.0" layoutY="14.0" prefHeight="452.0" prefWidth="510.0">
+                           <columns>
+                              <TableColumn fx:id="reservations_col_tableNumber" prefWidth="150.4000244140625" text="Table number" />
+                              <TableColumn fx:id="reservations_col_type" prefWidth="157.5999755859375" text="Type" />
+                              <TableColumn fx:id="reservations_col_status" prefWidth="200.800048828125" text="Status" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="26.0" prefWidth="900.0" styleClass="bg-back" stylesheets="@designMainpanel.css" GridPane.columnIndex="1">
+               <children>
+                  <Button fx:id="close" layoutX="851.0" layoutY="1.0" mnemonicParsing="false" onAction="#close" prefHeight="24.0" prefWidth="54.0" styleClass="close" stylesheets="@designMainpanel.css">
+                     <graphic>
+                        <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/close.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="minimize" layoutX="806.0" layoutY="1.0" minWidth="45.0" mnemonicParsing="false" onAction="#minimize" prefHeight="24.0" prefWidth="45.0" styleClass="minimize" stylesheets="@designMainpanel.css">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/minimize-sign.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="bg-back" stylesheets="@designMainpanel.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fitHeight="47.0" fitWidth="45.0" layoutX="828.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/user.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="746.0" layoutY="14.0" prefHeight="23.0" prefWidth="88.0" text="Good Morning,">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="username" layoutX="746.0" layoutY="28.0" prefHeight="23.0" prefWidth="75.0" text="Username">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="36.0" layoutY="10.0" prefHeight="45.0" prefWidth="321.0">
+                     <font>
+                        <Font name="Arial Bold" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="menu_form" prefHeight="200.0" prefWidth="200.0" styleClass="bg-back" stylesheets="@designMainpanel.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <AnchorPane layoutX="39.0" layoutY="14.0" prefHeight="482.0" prefWidth="832.0" styleClass="bg-white" stylesheets="@designMainpanel.css">
+                     <children>
+                        <TextField fx:id="menu_search" layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="224.0" promptText="Search" styleClass="search" stylesheets="@designMainpanel.css" />
+                        <ImageView fitHeight="17.0" fitWidth="20.0" layoutX="23.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/magnifying-glass.png" />
+                           </image>
+                        </ImageView>
+                        <TableView fx:id="menu_tableView" layoutX="14.0" layoutY="60.0" prefHeight="406.0" prefWidth="792.0">
+                           <columns>
+                              <TableColumn fx:id="menu_col_productName" prefWidth="237.60002517700195" text="Product Name" />
+                              <TableColumn fx:id="menu_col_type" prefWidth="297.6000061035156" text="Type" />
+                              <TableColumn fx:id="menu_col_price" prefWidth="257.5999755859375" text="Price" />
+                           </columns>
+                        </TableView>
+                        <Label layoutX="358.0" layoutY="6.0" prefHeight="38.0" prefWidth="115.0" text="Menu">
+                           <font>
+                              <Font name="System Bold" size="31.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="600.0" prefWidth="179.0" styleClass="nav-form" stylesheets="@designMainpanel.css" GridPane.rowSpan="3">
+               <children>
+                  <ImageView fitHeight="70.0" fitWidth="79.0" layoutX="14.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/restaurant-building.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="84.0" layoutY="58.0" text="Cafe Lusia">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="reservations_btn" layoutX="56.0" layoutY="163.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="37.0" prefWidth="159.0" styleClass="nav-btn" stylesheets="@designMainpanel.css" text="Reservations">
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/booking.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="orders_btn" layoutX="56.0" layoutY="201.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="37.0" prefWidth="159.0" styleClass="nav-btn" stylesheets="@designMainpanel.css" text="Orders">
+                     <graphic>
+                        <ImageView fitHeight="19.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/clipboard.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="coupons_btn" layoutX="56.0" layoutY="239.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="37.0" prefWidth="159.0" styleClass="nav-btn" stylesheets="@designMainpanel.css" text="Order Status">
+                     <graphic>
+                        <ImageView fitHeight="19.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/coupon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="signout_btn" layoutX="56.0" layoutY="537.0" mnemonicParsing="false" onAction="#logout" prefHeight="37.0" prefWidth="159.0" styleClass="nav-btn" stylesheets="@designMainpanel.css" text="Sign out">
+                     <graphic>
+                        <ImageView fitHeight="19.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/exit.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="menu_btn" layoutX="56.0" layoutY="125.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="37.0" prefWidth="159.0" style="-fx-background-color: #fff; -fx-background-radius: 5px 0px 0px 25px;" styleClass="nav-btn" stylesheets="@designMainpanel.css" text="Menu">
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/menu.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
