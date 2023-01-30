@@ -23,6 +23,7 @@ public class Tables {
     }
 
     public Integer getPhone() {
+
         return phone;
     }
 
@@ -31,6 +32,7 @@ public class Tables {
     }
 
     public Date getDate() {
+
         return date;
     }
 

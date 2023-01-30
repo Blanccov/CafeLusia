@@ -242,7 +242,7 @@ public class UserController implements Initializable {
                 alert.setHeaderText(null);
                 alert.setContentText("Number need to has 9 characters");
                 alert.showAndWait();
-            }
+            }else {
 
             if(reservations_tableNumber.getSelectionModel().getSelectedItem() == null || reservations_phone.getText() == null){
                 alert = new Alert(Alert.AlertType.ERROR);
@@ -301,7 +301,7 @@ public class UserController implements Initializable {
                     alert.setHeaderText(null);
                     alert.setContentText("You have reservation yet");
                     alert.showAndWait();
-            }}
+            }}}
 
         }catch(Exception e){
             e.printStackTrace();
@@ -341,9 +341,9 @@ public class UserController implements Initializable {
 
         reservations_tableNumber.getSelectionModel().clearSelection();
 
-        String setData = "UPDATE tables SET status = 'Not reserved'";
+        String setData = "UPDATE tables SET status = 'Not reserved' WHERE user_id ='"+ userId +"'";
 
-        String setUserId = "UPDATE tables SET user_id = '1'";
+        String setUserId = "UPDATE tables SET user_id = '1' WHERE user_id ='"+ userId +"'";
 
         String sql = "DELETE FROM reservations WHERE user_id = '" + userId + "'";
 

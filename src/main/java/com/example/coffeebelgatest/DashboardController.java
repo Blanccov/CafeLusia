@@ -820,6 +820,55 @@ public class DashboardController implements Initializable {
         }
     }
 
+    //TABLE REMOVE
+
+    public void reservationRemove(){
+
+        String sql = "DELETE FROM tables WHERE id =" + reservation_tableNumber.getText();
+
+        connection = Database.connectDb();
+
+        try {
+            Alert alert;
+
+            if (reservation_tableNumber.getText().isEmpty()) {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Select item");
+                alert.showAndWait();
+            }else {
+                alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Confirm");
+                alert.setHeaderText(null);
+                alert.setContentText("Are you sure about this?");
+                Optional<ButtonType> option = alert.showAndWait();
+
+                if(option.get().equals(ButtonType.OK)){
+                    statement = connection.createStatement();
+                    statement.executeUpdate(sql);
+
+                    alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Removed");
+                    alert.showAndWait();
+
+                    reservationShow();
+                }else {
+                    alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Information");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Cancelled");
+                    alert.showAndWait();
+                }
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     // CLEAR FIELDS
     public void reservationClear(){
 
@@ -884,7 +933,7 @@ public class DashboardController implements Initializable {
     public ObservableList<Tables> reservationShowList(){
         ObservableList<Tables> listData = FXCollections.observableArrayList();
 
-        String sql = "SELECT tables.id, tables.type, tables.status, reservations.date, reservations.phone FROM tables INNER JOIN reservations ON tables.user_id = reservations.user_id";
+        String sql = "SELECT tables.id, tables.type, tables.status, reservations.date, reservations.phone FROM tables LEFT JOIN reservations ON tables.user_id = reservations.user_id";
 
         connection = Database.connectDb();
 
@@ -1612,7 +1661,10 @@ public class DashboardController implements Initializable {
                     return true;
                 } else if (precidateReservations.getType().toLowerCase().contains(searchKey)) {
                     return true;
-                } else if (precidateReservations.getStatus().toLowerCase().contains(searchKey)) {
+                } else if (precidateReservations.getPhone().toString().contains(searchKey)) {
+                    return true;
+                }
+                else if (precidateReservations.getStatus().toLowerCase().contains(searchKey)) {
                     return true;
                 } else {
 

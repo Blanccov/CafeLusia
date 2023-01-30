@@ -141,7 +141,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="dashborad_form" prefHeight="200.0" prefWidth="200.0" styleClass="bg-back" stylesheets="@designMainpanel.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <AnchorPane fx:id="dashborad_form" prefHeight="200.0" prefWidth="200.0" styleClass="bg-back" stylesheets="@designMainpanel.css" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
                   <AnchorPane layoutX="38.0" layoutY="14.0" prefHeight="155.0" prefWidth="240.0" styleClass="bg-white" stylesheets="@designMainpanel.css">
                      <children>
@@ -257,7 +257,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="reservations_form" prefHeight="200.0" prefWidth="200.0" styleClass="bg-back" stylesheets="@designMainpanel.css" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <AnchorPane fx:id="reservations_form" prefHeight="200.0" prefWidth="200.0" styleClass="bg-back" stylesheets="@designMainpanel.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
                   <AnchorPane layoutX="38.0" layoutY="14.0" prefHeight="482.0" prefWidth="260.0" styleClass="bg-white" stylesheets="@designMainpanel.css">
                      <children>
@@ -270,7 +270,7 @@
                         <Button fx:id="reservation_update" layoutX="151.0" layoutY="241.0" mnemonicParsing="false" onAction="#reservationUpdate" prefHeight="45.0" prefWidth="79.0" styleClass="menu-btn" stylesheets="@designMainpanel.css" text="Update" />
                         <Button fx:id="reservation_clear" layoutX="33.0" layoutY="301.0" mnemonicParsing="false" onAction="#reservationClear" prefHeight="46.0" prefWidth="198.0" styleClass="menu-btn" stylesheets="@designMainpanel.css" text="Change all to not reserved" />
                         <TextField fx:id="reservation_tableNumber" layoutX="101.0" layoutY="81.0" />
-                        <Button fx:id="reservation_remove" layoutX="33.0" layoutY="364.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="198.0" styleClass="menu-btn" stylesheets="@designMainpanel.css" text="Remove" />
+                        <Button fx:id="reservation_remove" layoutX="33.0" layoutY="364.0" mnemonicParsing="false" onAction="#reservationRemove" prefHeight="46.0" prefWidth="198.0" styleClass="menu-btn" stylesheets="@designMainpanel.css" text="Remove" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="333.0" layoutY="14.0" prefHeight="482.0" prefWidth="538.0" styleClass="bg-white" stylesheets="@designMainpanel.css">
