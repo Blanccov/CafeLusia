@@ -67,6 +67,9 @@ public class UserController implements Initializable {
     private Button orders_add;
 
     @FXML
+    private TextField reservations_phone;
+
+    @FXML
     private TextField orders_amount;
 
     @FXML
@@ -131,6 +134,9 @@ public class UserController implements Initializable {
 
     @FXML
     private TableColumn<Reservations, String> reservations_col_type;
+
+    @FXML
+    private TableColumn<Reservations, String> reservations_col_phone;
 
 
     @FXML
@@ -222,7 +228,7 @@ public class UserController implements Initializable {
     public void reservationAdd(){
         methodUserID();
 
-        String sql = "INSERT INTO reservations (user_id, id, type, status, date)" + "VALUES(?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO reservations (user_id, id, type, status, date, phone)" + "VALUES(?, ?, ?, ?, ?, ?)";
 
         connection = Database.connectDb();
 
@@ -230,13 +236,22 @@ public class UserController implements Initializable {
 
             Alert alert;
 
-            if(reservations_tableNumber.getSelectionModel().getSelectedItem() == null){
+            if(reservations_phone.getText().length() != 9){
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Number need to has 9 characters");
+                alert.showAndWait();
+            }
+
+            if(reservations_tableNumber.getSelectionModel().getSelectedItem() == null || reservations_phone.getText() == null){
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setHeaderText(null);
                 alert.setContentText("Fill blanks");
                 alert.showAndWait();
-            }else {
+            }
+            else {
                 if(reservations_tableView.getItems().isEmpty()){
                 
 
@@ -271,6 +286,7 @@ public class UserController implements Initializable {
                 java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 
                 prepared.setString(5, String.valueOf(sqlDate));
+                prepared.setString(6, reservations_phone.getText());
 
 
 
@@ -403,7 +419,7 @@ public class UserController implements Initializable {
 
             while(result.next()){
                 reservations = new Reservations(result.getInt("id"), result.getInt("user_id"), result.getInt("id"), result.getString("type"),
-                        result.getString("status"), result.getDate("date"));
+                        result.getString("status"), result.getDate("date"), result.getInt("phone"));
 
                 listData.add(reservations);
             }
@@ -421,6 +437,7 @@ public class UserController implements Initializable {
         reservations_col_tableNumber.setCellValueFactory(new PropertyValueFactory<>("tableNumber"));
         reservations_col_type.setCellValueFactory(new PropertyValueFactory<>("type"));
         reservations_col_status.setCellValueFactory(new PropertyValueFactory<>("status"));
+        reservations_col_phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
 
         reservations_tableView.setItems(reservationList);
 

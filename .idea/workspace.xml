@@ -9,7 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="051a68c2-517c-4ee6-86e4-9b3864daae6d" name="Changes" comment="" />
+    <list default="true" id="051a68c2-517c-4ee6-86e4-9b3864daae6d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/coffeebelgatest/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/coffeebelgatest/DashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/coffeebelgatest/Reservations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/coffeebelgatest/Reservations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/coffeebelgatest/Tables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/coffeebelgatest/Tables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/coffeebelgatest/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/coffeebelgatest/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/coffeebelgatest/adminpanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/coffeebelgatest/adminpanel.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/coffeebelgatest/userpanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/coffeebelgatest/userpanel.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,10 +37,11 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
     </option>
   </component>
   <component name="ProjectId" id="2KSUcS5NbYCekokG4U2oK1sTLue" />
@@ -45,7 +54,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/Projects/CoffeeBelgaTest/src/main/resources/com/example/coffeebelgatest",
+    "last_opened_file_path": "D:/ProjectJava/CafeLusia",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -69,7 +78,7 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.coffeebelgatest.Main" />
-      <module name="CoffeeBelgaTest" />
+      <module name="CafeLusia" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.example.coffeebelgatest.*" />
@@ -95,6 +104,7 @@
       <option name="presentableId" value="Default" />
       <updated>1673967560548</updated>
       <workItem from="1673967561750" duration="3736000" />
+      <workItem from="1675072527050" duration="2416000" />
     </task>
     <servers />
   </component>

@@ -11,13 +11,16 @@ public class Reservations {
     private String status;
     private Date date;
 
-    public Reservations(Integer Id, Integer userId, Integer tableNumber, String type, String status, Date date) {
+    private Integer phone;
+
+    public Reservations(Integer Id, Integer userId, Integer tableNumber, String type, String status, Date date, Integer phone) {
         this.Id = userId;
         this.userId = userId;
         this.tableNumber = tableNumber;
         this.type = type;
         this.status = status;
         this.date = date;
+        this.phone = phone;
     }
 
     public Integer getUserId() {
@@ -38,6 +41,10 @@ public class Reservations {
 
     public String getType() {
         return type;
+    }
+
+    public Integer getPhone() {
+        return phone;
     }
 
     public String getStatus() {

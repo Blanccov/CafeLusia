@@ -224,6 +224,9 @@ public class DashboardController implements Initializable {
     private TableView<OrdersUser> orders_tableView;
 
     @FXML
+    private Button reservation_remove;
+
+    @FXML
     private Button reservation_add;
 
     @FXML
@@ -258,6 +261,9 @@ public class DashboardController implements Initializable {
 
     @FXML
     private TableColumn<Tables, String> reservations_col_userID;
+
+    @FXML
+    private TableColumn<Tables, String> reservations_col_date;
 
     @FXML
     private AnchorPane reservations_form;
@@ -878,7 +884,7 @@ public class DashboardController implements Initializable {
     public ObservableList<Tables> reservationShowList(){
         ObservableList<Tables> listData = FXCollections.observableArrayList();
 
-        String sql = "SELECT * FROM tables";
+        String sql = "SELECT tables.id, tables.type, tables.status, reservations.date, reservations.phone FROM tables INNER JOIN reservations ON tables.user_id = reservations.user_id";
 
         connection = Database.connectDb();
 
@@ -891,7 +897,7 @@ public class DashboardController implements Initializable {
 
             while(result.next()){
                 table = new Tables(result.getInt("id"), result.getString("type"),
-                        result.getString("status"), result.getInt("user_id"));
+                        result.getString("status"), result.getInt("phone"), result.getDate("date"));
 
                 listData.add(table);
             }
@@ -909,7 +915,8 @@ public class DashboardController implements Initializable {
         reservations_col_tableNumber.setCellValueFactory(new PropertyValueFactory<>("tableNumber"));
         reservations_col_type.setCellValueFactory(new PropertyValueFactory<>("type"));
         reservations_col_status.setCellValueFactory(new PropertyValueFactory<>("status"));
-        reservations_col_userID.setCellValueFactory(new PropertyValueFactory<>("user_id"));
+        reservations_col_userID.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        reservations_col_date.setCellValueFactory(new PropertyValueFactory<>("date"));
 
         reservations_tableView.setItems(reservationList);
 

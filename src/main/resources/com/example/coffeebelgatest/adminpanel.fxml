@@ -268,8 +268,9 @@
                         <ComboBox fx:id="reservation_status" layoutX="100.0" layoutY="153.0" prefWidth="150.0" promptText="Choose" />
                         <Label layoutX="26.0" layoutY="157.0" text="Status:" />
                         <Button fx:id="reservation_update" layoutX="151.0" layoutY="241.0" mnemonicParsing="false" onAction="#reservationUpdate" prefHeight="45.0" prefWidth="79.0" styleClass="menu-btn" stylesheets="@designMainpanel.css" text="Update" />
-                        <Button fx:id="reservation_clear" layoutX="33.0" layoutY="301.0" mnemonicParsing="false" onAction="#reservationClear" prefHeight="46.0" prefWidth="199.0" styleClass="menu-btn" stylesheets="@designMainpanel.css" text="Change all to not reserved" />
+                        <Button fx:id="reservation_clear" layoutX="33.0" layoutY="301.0" mnemonicParsing="false" onAction="#reservationClear" prefHeight="46.0" prefWidth="198.0" styleClass="menu-btn" stylesheets="@designMainpanel.css" text="Change all to not reserved" />
                         <TextField fx:id="reservation_tableNumber" layoutX="101.0" layoutY="81.0" />
+                        <Button fx:id="reservation_remove" layoutX="33.0" layoutY="364.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="198.0" styleClass="menu-btn" stylesheets="@designMainpanel.css" text="Remove" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="333.0" layoutY="14.0" prefHeight="482.0" prefWidth="538.0" styleClass="bg-white" stylesheets="@designMainpanel.css">
@@ -282,10 +283,11 @@
                         </ImageView>
                         <TableView fx:id="reservations_tableView" layoutX="14.0" layoutY="60.0" onMouseClicked="#reservationSelect" prefHeight="405.0" prefWidth="509.0">
                            <columns>
-                              <TableColumn fx:id="reservations_col_tableNumber" prefWidth="128.00006103515625" text="Table number" />
-                              <TableColumn fx:id="reservations_col_type" prefWidth="132.800048828125" text="Type" />
-                              <TableColumn fx:id="reservations_col_status" prefWidth="135.2000732421875" text="Status" />
-                              <TableColumn fx:id="reservations_col_userID" prefWidth="111.20003662109377" text="User ID" />
+                              <TableColumn fx:id="reservations_col_tableNumber" prefWidth="88.0" text="Table number" />
+                              <TableColumn fx:id="reservations_col_type" prefWidth="91.0" text="Type" />
+                              <TableColumn fx:id="reservations_col_status" prefWidth="122.0" text="Status" />
+                              <TableColumn fx:id="reservations_col_userID" prefWidth="119.0" text="User Phone" />
+                              <TableColumn fx:id="reservations_col_date" prefWidth="89.0" text="Date" />
                            </columns>
                         </TableView>
                      </children>
