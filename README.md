@@ -2,14 +2,7 @@
 
 Aplikacja wymaga wersji Javy 19.
 
-#INSTRUKCJA INSTALACJI:
-
-Do instalacji aplikacji należy uruchomić plik ‘CaffebelgaApp – Installer.exe’.
-Należy podążać według instrukcji instalatora i wybrać lokalizacje dla aplikacji.
-
-
-
-#KONFIGURACJA SYSTEMU:
+#KONFIGURACJA:
 
 Do poprawnego uruchomienia aplikacji należy uruchomić panel pakietu XAMPP
 w którym należy włączyć pozycje Apache i MySQL. Następnie przejść do
